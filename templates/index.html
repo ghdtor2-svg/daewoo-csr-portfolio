@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md text-white border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="bg-brand-500 text-slate-900 font-bold px-2.5 py-1 rounded text-sm tracking-wider uppercase">CSR Expert</span>
+                <span class="text-xl font-extrabold tracking-tight">{{name}} <span class="text-xs text-slate-400 font-normal ml-1">포트폴리오</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brand-500 transition-colors">프로필</a>
+                <a href="#projects" class="hover:text-brand-500 transition-colors">핵심 {{projectCount}}대 사업</a>
+                <a href="#skills" class="hover:text-brand-500 transition-colors">스킬 & 역량</a>
+                <a href="#story" class="hover:text-brand-500 transition-colors">자기소개</a>
+                <a href="#contact" class="hover:text-brand-500 transition-colors">연락처</a>
+            </nav>
+
+            <a href="tel:{{phone}}" class="bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <span>문의하기</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero / Profile Banner -->
+    <section id="about" class="bg-navy-950 text-white relative overflow-hidden py-16 md:py-24 bg-grid">
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/90 to-brand-950/40 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Profile Image -->
+                <div class="md:col-span-5 lg:col-span-4 flex justify-center">
+                    <div class="relative group w-64 sm:w-72 md:w-full max-w-xs">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 to-emerald-400 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                        <div class="relative rounded-2xl overflow-hidden bg-slate-800 border-2 border-slate-700 shadow-2xl">
+                            <img src="assets/images/대우증명.jpg" alt="{{name}} 프로필" class="w-full h-auto object-cover aspect-[3/4] cursor-pointer hover:scale-105 transition duration-500" onclick="openLightbox(this.src, '{{name}} 사회공헌전문가')">
+                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-950/90 via-navy-950/50 to-transparent p-4 text-center">
+                                <p class="text-white font-bold text-lg">{{name}}</p>
+                                <p class="text-brand-100 text-xs">사회공헌 기획자 · SV/SROI 전문가</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Info -->
+                <div class="md:col-span-7 lg:col-span-8 space-y-6 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs sm:text-sm font-medium">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>{{tagline}}</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                        진정성 있는 사회적 가치를 측정하고 <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-teal-300 to-emerald-400">지속 가능한 임팩트</span>를 만듭니다
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                        {{introduction}}
+                    </p>
+
+                    <!-- Profile Quick Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 text-center md:text-left">
+                            <div class="text-brand-500 text-2xl font-extrabold">12년 +</div>
+                            <div class="text-xs text-slate-400 mt-1">비영리 & 기업 CSR 경력</div>
+                        </div>
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 text-center md:text-left">
+                            <div class="text-emerald-400 text-2xl font-extrabold">14,000 가구</div>
+                            <div class="text-xs text-slate-400 mt-1">에너지 빈곤지역 친환경 에너지지원</div>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 bg-slate-900/80 border border-slate-800 rounded-xl p-4 text-center md:text-left">
+                            <div class="text-teal-300 text-2xl font-extrabold">SV / SROI</div>
+                            <div class="text-xs text-slate-400 mt-1">사회적가치 측정 및 보고서 발간</div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-sm text-slate-300">
+                        <div class="flex items-center gap-2 bg-slate-800/60 px-3.5 py-2 rounded-lg border border-slate-700">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-500"></i>
+                            <span>{{phone}}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-800/60 px-3.5 py-2 rounded-lg border border-slate-700">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-500"></i>
+                            <span>{{email}}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Core Projects -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-extrabold text-sm tracking-widest uppercase">01 | Core Projects</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">핵심 {{projectCount}}대 사업 성과</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-base">{{projectsDescription}}</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+{{projects}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Skills & Competencies -->
+    <section id="skills" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-400 font-extrabold text-sm tracking-widest uppercase">02 | Skills & Competencies</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">스킬 및 핵심 역량</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Competency Gauge Bars -->
+                <div class="bg-slate-800/80 border border-slate-700 p-8 rounded-2xl space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
+                        <span>강점 역량 수치</span>
+                    </h3>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-semibold mb-2">
+                            <span class="text-slate-300">[기획력]</span>
+                            <span class="text-brand-400">70%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-full rounded-full" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-semibold mb-2">
+                            <span class="text-slate-300">[실행력]</span>
+                            <span class="text-brand-400">80%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-full rounded-full" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-semibold mb-2">
+                            <span class="text-slate-300">[설득력]</span>
+                            <span class="text-brand-400">80%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-full rounded-full" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-semibold mb-2">
+                            <span class="text-slate-300">[포용력]</span>
+                            <span class="text-brand-400">90%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-full rounded-full" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Tags & Tools -->
+                <div class="space-y-8">
+                    <div class="bg-slate-800/80 border border-slate-700 p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
+                            <i data-lucide="briefcase" class="w-5 h-5 text-brand-400"></i>
+                            <span>보유 업무 스킬</span>
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-slate-700 text-slate-200 px-4 py-2 rounded-xl text-sm font-medium border border-slate-600">의사소통</span>
+                            <span class="bg-slate-700 text-slate-200 px-4 py-2 rounded-xl text-sm font-medium border border-slate-600">사업 수행</span>
+                            <span class="bg-slate-700 text-slate-200 px-4 py-2 rounded-xl text-sm font-medium border border-slate-600">창의적 사고</span>
+                            <span class="bg-brand-600/30 text-brand-300 px-4 py-2 rounded-xl text-sm font-semibold border border-brand-500/40">협업 소프트웨어</span>
+                            <span class="bg-brand-600/30 text-brand-300 px-4 py-2 rounded-xl text-sm font-semibold border border-brand-500/40">엑셀 (Excel)</span>
+                            <span class="bg-brand-600/30 text-brand-300 px-4 py-2 rounded-xl text-sm font-semibold border border-brand-500/40">한글</span>
+                            <span class="bg-emerald-500/20 text-emerald-300 px-4 py-2 rounded-xl text-sm font-bold border border-emerald-500/40 flex items-center gap-1.5">
+                                <i data-lucide="bot" class="w-4 h-4"></i>
+                                AI 활용 역량
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-brand-900/40 to-slate-800 p-6 rounded-2xl border border-brand-500/30">
+                        <h4 class="font-bold text-brand-300 text-base mb-2">실행력과 리더십 중심의 일하는 방식</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            기업 및 비영리 조직의 이해관계를 하나로 모으는 포용력과 맞춤형 소통 능력으로 사업의 안정적 성과 창출을 견인합니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Self Introduction / Story -->
+    <section id="story" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-extrabold text-sm tracking-widest uppercase">03 | Self Introduction</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">자기소개서 & 가치관</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">다양한 사회공헌 경험</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        사회복지를 졸업하고 현장으로 직행하지 않은 이유는 단순 수혜를 넘어 더 다양한 이들이 수혜를 받는 사업을 기획하고 싶었기 때문입니다. 12년 비영리 경험을 거쳐 더 큰 사회적 임팩트를 만들고자 합니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">조직 리더십 경험</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        막내부터 중간리더, 최고관리자까지 다양한 위치에서 소통해 왔습니다. 각 위치 사람들의 필요를 파악하고 소통할 수 있는 역량으로 조직에 신속히 적응해 성과를 창출합니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="cog" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">톱니바퀴처럼 굴러가도록</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        기업과 수행 기관 간 이해관계를 상호 경청을 통해 하나로 모으는 것이 핵심입니다. 다양한 경험은 두 조직의 니즈를 원활히 조율하는 큰 힘이 됩니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">위기에서 빛을 발하는 실행력</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        코로나 팬데믹 시절 대면행사가 어려워졌을 때 선제적으로 비대면 나눔강연 및 나눔스토어를 기획·운영해 성공적 성과를 거두었습니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">숙련된 창의성</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        당연한 고정관념에서 벗어나 사회적 임팩트를 고도화할 수 있는 창의적 아이디어로 사업 영역을 지속적으로 확장해 나가겠습니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="line-chart" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">측정되지 않으면 관리할 수 없다</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        컨설팅 기업 플랫폼팀에서 SV를 측정하고 사회적가치 보고서를 발행하는 업무를 담당하며 성과 측정 및 관리 프레임워크를 다졌습니다.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Family & Vision Section -->
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-navy-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-white overflow-hidden relative shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative rounded-2xl overflow-hidden border-2 border-slate-700 shadow-lg">
+                            <img src="assets/images/가족사진.jpg" alt="{{name}} 가족 사진" class="w-full h-auto object-cover cursor-pointer hover:scale-105 transition duration-500" onclick="openLightbox(this.src, '사랑하는 가족과 함께')">
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 space-y-4 text-center md:text-left">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-wider">Family & Value</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">더 나은 세상을 함께 만드는 마음으로</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            따뜻한 가정을 이루며 배운 소통과 책임감은 사회공헌 현장에서 사람을 대하고 사업을 완성해 나가는 가장 큰 원동력입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="bg-navy-950 text-white py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-2">읽어주셔서 감사합니다 :)</h3>
+            <p class="text-slate-400 text-sm mb-6">THANK YOU FOR CHECKING OUT MY PORTFOLIO.</p>
+            
+            <div class="inline-flex flex-wrap justify-center gap-6 text-sm text-slate-300 mb-8">
+                <span><strong>성명:</strong> {{name}}</span>
+                <span><strong>연락처:</strong> {{phone}}</span>
+                <span><strong>이메일:</strong> {{email}}</span>
+            </div>
+
+            <div class="text-xs text-slate-500 pt-6 border-t border-slate-900">
+                &copy; 2026 {{name}}. All rights reserved. | Responsive Web Portfolio
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white hover:text-brand-400 text-sm flex items-center gap-1">
+                <i data-lucide="x" class="w-6 h-6"></i> 닫기
+            </button>
+            <img id="lightbox-img" src="" alt="확대 이미지" class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white text-sm font-medium mt-4 text-center bg-navy-900/80 px-4 py-2 rounded-full"></p>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+

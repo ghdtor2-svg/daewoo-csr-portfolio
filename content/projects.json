@@ -1,0 +1,107 @@
+[
+  {
+    "id": "together-spring",
+    "title": "장애인의 날 이벤트 \"함께 봄\"",
+    "category": "인식개선 & 캠페인",
+    "image": "assets/images/함께봄.jpg",
+    "imageAlt": "장애인의 날 함께 봄 이벤트",
+    "fields": [
+      {
+        "label": "배경",
+        "value": "장애인의 날 기념 장애인식개선",
+        "highlight": false
+      },
+      {
+        "label": "목표",
+        "value": "장애인식개선 및 정기후원 캠페인",
+        "highlight": false
+      },
+      {
+        "label": "성과",
+        "value": "서울교통공사 협력으로 행사 성료",
+        "highlight": true
+      }
+    ],
+    "description": "서울교통공사 9호선 운영부문에서 운영하는 7개의 역사에 장애인의 생애주기별 인식을 개선하기 위한 프로그램 운영. 많은 시민들의 장애인식개선을 이끌어 낼 수 있었으며, 다수의 시민이 정기후원으로 지속적인 사회공헌 임팩트를 형성하는데 기여함."
+  },
+  {
+    "id": "lighting-children",
+    "title": "태양광랜턴 지원 \"라이팅칠드런\"",
+    "category": "글로벌 에너지 복지",
+    "image": "assets/images/태양광랜턴.jpg",
+    "imageAlt": "태양광랜턴지원사업 라이팅칠드런",
+    "fields": [
+      {
+        "label": "배경",
+        "value": "에너지빈곤지역 태양광랜턴 지원",
+        "highlight": false
+      },
+      {
+        "label": "목표",
+        "value": "4개국가 10,000개 랜턴 지원",
+        "highlight": false
+      },
+      {
+        "label": "성과",
+        "value": "14,000가구 친환경 에너지 지원",
+        "highlight": true
+      }
+    ],
+    "description": "전기가 없이 살아가는 아프리카 및 아시아 지역에 랜턴을 선물, 빛이 없어 공부를 하지 못하고 전기가 없어서 위험에 빠진 이들의 안전을 지킬 수 있도록 기여함. (은코마 마을 5,000개 보내기 성공 포함)"
+  },
+  {
+    "id": "social-value",
+    "title": "사회적가치(SV) 측정 & 보고서",
+    "category": "SV & SROI 분석",
+    "image": "assets/images/웨비나.jpg",
+    "imageAlt": "사회적가치측정 및 웨비나",
+    "fields": [
+      {
+        "label": "배경",
+        "value": "기업사회공헌사업 SV 측정 및 보고서 발간",
+        "highlight": false
+      },
+      {
+        "label": "목표",
+        "value": "SROI 측정을 통한 사업 평가 고도화",
+        "highlight": false
+      },
+      {
+        "label": "성과",
+        "value": "남양유업, 밀알복지재단 SV보고서 발행",
+        "highlight": true
+      }
+    ],
+    "description": "남양유업과 밀알복지재단의 사회공헌 사업에 대한 SV를 측정하고 보고서를 발간. AI시대 임팩트 있는 사회공헌 웨비나(150명 참여)의 전체 기획 및 진행 담당.",
+    "video": {
+      "id": "_k1VzGJK4PM",
+      "title": "AI 사회공헌 웨비나 다시보기"
+    }
+  },
+  {
+    "id": "goodwill-store",
+    "title": "굿윌스토어 건립지원",
+    "category": "사업 개발 & 총괄",
+    "image": "",
+    "imageAlt": "",
+    "fields": [
+      {
+        "label": "직책",
+        "value": "인천 지부장",
+        "highlight": false
+      },
+      {
+        "label": "역할",
+        "value": "건립지원 사업 개발 및 추진 총괄",
+        "highlight": false
+      },
+      {
+        "label": "규모",
+        "value": "3년간 총 10억 원",
+        "highlight": true
+      }
+    ],
+    "description": "인천 지부장 재임 당시 굿윌스토어 건립지원 사업을 직접 개발하고, 3년간 총 10억 원 규모의 사업 추진 전반을 총괄했습니다.",
+    "metric": "3년간 총 10억 원"
+  }
+]
