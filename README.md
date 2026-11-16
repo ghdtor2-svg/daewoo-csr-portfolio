@@ -18,7 +18,8 @@
 | 이름, 연락처, 기본 소개, 사업 섹션 설명 | [content/site.json](content/site.json) |
 | 사업명, 역할, 성과, 규모, 상세 설명, 사진 경로, 영상 | [content/projects.json](content/projects.json) |
 | 사진 추가 및 교체 | [assets/images/](assets/images/) |
-| 역량 수치, 자기소개서, 가족 소개, 전체 배치 | [templates/index.html](templates/index.html) |
+| 자기소개서와 사업 추진 스토리 | [content/stories.json](content/stories.json) |
+| 역량 수치, 가족 소개, 전체 배치 | [templates/index.html](templates/index.html) |
 | 색상 외 추가 스타일 | [assets/css/site.css](assets/css/site.css) |
 | 사진 확대 동작 | [assets/js/main.js](assets/js/main.js) |
 
@@ -49,13 +50,17 @@
 
 객체의 순서를 바꾸면 화면의 순서도 바뀝니다. 사업 번호와 ‘핵심 N대 사업’ 문구는 자동 계산됩니다. 소개 문구인 `projectsDescription`은 `content/site.json`에서 별도로 수정합니다.
 
+## 스토리 추가 및 수정
+
+`content/stories.json`에서 `title`과 `description`을 수정합니다. `icon`은 Lucide 아이콘 이름이고, `featured: true`는 넓은 카드로 강조합니다. 굿윌스토어 협업 사례는 담당자의 우려 파악과 현장 라운딩을 통한 신뢰 회복을 중심으로 정리했습니다. 실제 첨부 사진의 원본 파일은 작업 환경에 전달되지 않아 현재 사진 반영은 보류 상태입니다.
+
 ## 기존 Netlify 프로젝트에 GitHub 연결
 
 기존 주소를 유지하려면 **새 프로젝트를 만들지 말고 기존 프로젝트에 연결**하세요.
 
 1. 기존 프로젝트 열기: https://app.netlify.com/projects/resonant-jelly-51ba9b/overview
 2. **Project configuration → Build & deploy → Continuous deployment → Repository**로 이동합니다. UI 버전에 따라 **Link repository** 또는 **Link to a Git repository**로 표시됩니다.
-3. GitHub를 선택하고 이 저장소에 접근을 허용한 뒤 `daewoo-csr-portfolio`를 선택합니다. 비공개 저장소이므로 Netlify GitHub 앱에 해당 저장소 권한을 부여해야 합니다.
+3. GitHub를 선택하고 이 저장소에 접근을 허용한 뒤 `daewoo-csr-portfolio`를 선택합니다. Netlify GitHub 앱에 해당 저장소 권한을 부여해야 합니다.
 4. 배포 브랜치: `main`, Base directory: 비워 둠, Build command: `python3 scripts/build.py`, Publish directory: `public`.
 5. 저장하고 첫 배포를 실행합니다. `netlify.toml`에도 같은 설정이 있습니다.
 6. Deploys에서 성공 상태를 확인하고 기존 공개 사이트에서 4개 사업과 굿윌스토어 문구를 확인합니다.

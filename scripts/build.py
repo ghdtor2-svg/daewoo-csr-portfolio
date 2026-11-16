@@ -72,6 +72,19 @@ def render_project(project, number):
     </article>'''
 
 
+
+def render_story(story):
+    icon = story.get('icon', 'lightbulb')
+    if not re.fullmatch(r'[a-z-]+', icon):
+        raise ValueError('아이콘 이름은 영문 소문자와 하이픈으로 입력해 주세요.')
+    featured = ' md:col-span-2 lg:col-span-3 border-brand-500' if story.get('featured') else ''
+    return f'''<article class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover{featured}">
+      <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4"><i data-lucide="{icon}" class="w-5 h-5" aria-hidden="true"></i></div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">{text(story['title'])}</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">{text(story['description'])}</p>
+    </article>'''
+
+
 def main():
     site = json.loads((ROOT / 'content/site.json').read_text(encoding='utf-8'))
     projects = json.loads((ROOT / 'content/projects.json').read_text(encoding='utf-8'))
@@ -81,6 +94,8 @@ def main():
     if len(ids) != len(set(ids)):
         raise ValueError('사업 id가 중복되었습니다.')
     values = {key: text(value) for key, value in site.items()}
+    stories = json.loads((ROOT / 'content/stories.json').read_text(encoding='utf-8'))
+    values['stories'] = '\n'.join(render_story(story) for story in stories)
     values['projectCount'] = str(len(projects))
     values['projects'] = '\n'.join(render_project(project, i + 1) for i, project in enumerate(projects))
     template = (ROOT / 'templates/index.html').read_text(encoding='utf-8')
