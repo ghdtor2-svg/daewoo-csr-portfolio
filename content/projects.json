@@ -82,8 +82,8 @@
     "id": "goodwill-store",
     "title": "인천국제공항공사 굿윌스토어 건립지원",
     "category": "사업 개발 & 총괄",
-    "image": "",
-    "imageAlt": "",
+    "image": "assets/images/goodwill-incheon.jpg",
+    "imageAlt": "인천국제공항공사와 함께하는 굿윌스토어 밀알인천점 전경",
     "fields": [
       {
         "label": "직책",
@@ -102,6 +102,11 @@
       }
     ],
     "description": "인천 지부장 재임 당시 인천국제공항공사와 함께하는 굿윌스토어 건립지원 사업을 직접 개발하고, 3년간 총 10억 원 규모의 사업 추진 전반을 총괄했습니다.",
-    "metric": "3년간 총 10억 원"
+    "metric": "3년간 총 10억 원",
+    "imageFit": "contain",
+    "imageCredit": {
+      "label": "사진: 프리진뉴스 · 김학현 기자",
+      "url": "https://www.freezinenews.com/news/articleView.html?idxno=16313"
+    }
   }
 ]

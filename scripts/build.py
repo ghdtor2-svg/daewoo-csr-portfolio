@@ -31,8 +31,12 @@ def render_project(project, number):
         raise ValueError('사업 id에는 영문 소문자, 숫자, 하이픈을 사용해 주세요.')
     if project.get('image'):
         alt = text(project.get('imageAlt') or project['title'])
-        media = f'''<div class="relative h-56 overflow-hidden bg-slate-200">
-          <img src="{image_path(project['image'])}" alt="{alt}" loading="lazy" data-lightbox class="w-full h-full object-cover cursor-pointer hover:scale-105 transition duration-500">
+        fit = project.get('imageFit', 'cover')
+        if fit not in ('cover', 'contain'):
+            raise ValueError('imageFit은 cover 또는 contain입니다.')
+        height = 'h-80 sm:h-96' if fit == 'contain' else 'h-56'
+        media = f'''<div class="relative {height} overflow-hidden bg-slate-200">
+          <img src="{image_path(project['image'])}" alt="{alt}" loading="lazy" data-lightbox class="w-full h-full object-{fit} cursor-pointer hover:scale-105 transition duration-500">
           <div class="absolute top-3 left-3 bg-brand-700 text-white text-xs px-2.5 py-1 rounded-md font-medium">{category}</div>
         </div>'''
     else:
@@ -42,6 +46,12 @@ def render_project(project, number):
           <p class="text-3xl font-extrabold">{text(project.get('metric', project['title']))}</p>
           <p class="text-sm text-teal-100 mt-2">{title}</p>
         </div>'''
+    credit = project.get('imageCredit')
+    if project.get('image') and credit:
+        url = credit['url']
+        if not url.startswith('https://'):
+            raise ValueError('사진 출처 주소는 https://로 시작해야 합니다.')
+        media += f'''<p class="px-6 pt-2 text-xs text-slate-500"><a href="{text(url)}" target="_blank" rel="noopener noreferrer" class="underline hover:text-brand-700">{text(credit['label'])}</a></p>'''
     fields = []
     for field in project['fields']:
         color = 'text-brand-700 font-semibold' if field.get('highlight') else 'text-slate-600'

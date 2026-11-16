@@ -4,7 +4,7 @@
 - Preserve the current design, existing project copy, and local photos unless a requested change requires otherwise.
 - Edit profile copy in `content/site.json`, project copy in `content/projects.json`, and personal/project stories in `content/stories.json`.
 - The confirmed Goodwill scope is **3년간 총 10억 원**, developed and overseen while serving as **인천 지부장**. Do not describe this as an annual 10억 원 project or 30억 원 total.
-- The user provided a Goodwill Milal Incheon storefront photo in chat, but the binary file is not available locally yet. Use that exact photo when its source becomes available; do not substitute unrelated photos.
+- The user-selected Goodwill photo is `assets/images/goodwill-incheon.jpg`, sourced from https://www.freezinenews.com/news/articleView.html?idxno=16313. Preserve the original image, watermark, and visible credit. Its portrait layout uses `imageFit: "contain"`.
 - Put photos in `assets/images/`. Use `image: ""` for the icon/metric fallback.
 - Templates, CSS, and JavaScript live in `templates/` and `assets/`. `public/` is generated and ignored.
 - Run `python3 scripts/build.py` after changes. Keep the project build dependency-free.
